@@ -74,6 +74,11 @@
             transform: scale(1.1);
         }
 
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
         ::-webkit-scrollbar {
             width: 12px;
         }
@@ -111,9 +116,18 @@
         const generateBtn = document.getElementById('generate-btn');
         const languageDisplay = document.getElementById('language');
 
+        const savedLanguage = localStorage.getItem('generatedLanguage');
+        if (savedLanguage) {
+            languageDisplay.textContent = `You are: ${savedLanguage}`;
+            generateBtn.disabled = true; 
+        }
+
         generateBtn.addEventListener('click', () => {
             const randomIndex = Math.floor(Math.random() * languages.length);
-            languageDisplay.textContent = `You are: ${languages[randomIndex]}`;
+            const selectedLanguage = languages[randomIndex];
+            languageDisplay.textContent = `You are: ${selectedLanguage}`;
+            generateBtn.disabled = true; 
+            localStorage.setItem('generatedLanguage', selectedLanguage);
         });
     </script>
 </body>
