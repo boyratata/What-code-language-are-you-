@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Language Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            background-size: 300% 300%;
+            animation: gradient-animation 10s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(58, 63, 71, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #language {
+            font-size: 1.5em;
+            margin: 20px 0;
+            min-height: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #ff1e69;
+            transform: scale(1.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coding Language Generator</h1>
+        <p id="language">Press the button to find out what coding language you are!</p>
+        <button id="generate-btn">Generate Language</button>
+    </div>
+    <script>
+        const languages = [
+            "Python",
+            "JavaScript",
+            "Java",
+            "C#",
+            "C++",
+            "Ruby",
+            "Go",
+            "Swift",
+            "Rust",
+            "PHP"
+        ];
+
+        const generateBtn = document.getElementById('generate-btn');
+        const languageDisplay = document.getElementById('language');
+
+        generateBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * languages.length);
+            languageDisplay.textContent = `You are: ${languages[randomIndex]}`;
+        });
+    </script>
+</body>
+</html>
